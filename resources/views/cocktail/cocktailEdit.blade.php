@@ -3,8 +3,8 @@
 @section('content')
 <div class="post">
     <div class="container">
-        <div class="row justify-content-center g-3">
-            <h4 class="text-center">編集</h4>
+    <div class="row justify-content-center g-3 m-1 mt-3 rounded" style="background-color: rgba(128, 128, 128, 0.9);">
+            <h4 class="text-center w-100 mt-3">編集</h4>
             <div class="contentsForm mt-3">
                 <p><span class="text-danger">*</span> は入力必須項目</p>
                 <div id="message"></div>
@@ -29,7 +29,7 @@
                         @endif
                         <!-- <input id="genre" type="text" name="genre" value="{{ old('genre', ($date['genre'] ?? '')) }}" placeholder="" ><br><br> -->
                         <select name="genre" class="rounded bg-dark text-light">
-                            <option value="">{{ old('genre', ($date['genre'] ?? '')) }}</option>
+                            <option>{{ old('genre', ($date['genre'] ?? '')) }}</option>
                             <option>ウイスキー</option>
                             <option>ジン</option>
                             <option>ウォッカ</option>
@@ -51,7 +51,7 @@
                         @endif
                         <!-- <input id="degree" type="text" name="degree" value="{{ old('degree', ($date['degree'] ?? '')) }}" placeholder=""><br><br> -->
                         <select name="degree" class="rounded bg-dark text-light">
-                            <option value="">{{ old('degree', ($date['degree'] ?? '')) }}</option>
+                            <option>{{ old('degree', ($date['degree'] ?? '')) }}</option>
                             <option>弱い</option>
                             <option>普通</option>
                             <option>強い</option>
@@ -66,7 +66,7 @@
                         @endif
                         <!-- <input id="taste" type="text" name="taste" value="{{ old('taste', ($date['taste'] ?? '')) }}" placeholder=""><br><br> -->
                         <select name="taste" class="rounded  bg-dark text-light">
-                            <option value="">{{ old('taste', ($date['taste'] ?? '')) }}</option>
+                            <option>{{ old('taste', ($date['taste'] ?? '')) }}</option>
                             <option>甘口</option>
                             <option>中甘口</option>
                             <option>辛口</option>
@@ -105,6 +105,9 @@
                     </div>
                     <input type="hidden" name="submitted" value="true">
                     <button type="submit" class="btn btn-dark">送信</button>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="#" class="btn btn-danger btn-sm btn-block mb-3 w-25" role="button" onclick="history.back(-1);return false;">BACK</a>
+                    </div>
                 </form>
             </div>
         </div>

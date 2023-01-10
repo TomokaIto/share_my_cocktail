@@ -3,8 +3,8 @@
 @section('content')
 <div class="post">
     <div class="container">
-        <div class="row justify-content-center g-3">
-            <h4>オリジナルカクテル投稿</h4>
+        <div class="row justify-content-center g-3 m-1 mt-3 rounded" style="background-color: rgba(128, 128, 128, 0.9);">
+            <h4 class="mt-4">カクテル投稿フォーム</h4>
             <div class="contentsForm mt-3">
                 <p><span class="text-danger">*</span> は入力必須項目</p>
                 <div id="message"></div>
@@ -104,6 +104,9 @@
                     </div>
                     <input type="hidden" name="submitted" value="true">
                     <button type="submit" class="btn btn-dark">送信</button>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="#" class="btn btn-danger btn-sm btn-block mb-3 w-25" role="button" onclick="history.back(-1);return false;">BACK</a>
+                    </div>
                 </form>
             </div>
         </div>

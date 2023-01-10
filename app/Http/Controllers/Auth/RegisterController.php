@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/cocktailIndex';
 
     /**
      * Create a new controller instance.
@@ -64,7 +64,7 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    {
+    {   session()->flash('flash_message', '登録が完了しました');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

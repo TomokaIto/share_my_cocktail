@@ -9,7 +9,7 @@ class LikeController extends Controller
 {
     public function like_product(Request $request)
     {
-        
+       
         if ($request->input('like_product') == 0) {
             //ステータスが0のときはデータベースに情報を保存
             // LikeProduct::create([
@@ -18,15 +18,25 @@ class LikeController extends Controller
             // ]);
             $like = new LikeProduct();
             $like->product_id = $request->product_id;
-            $like->user_id = \Auth::user()->id;
+
+            if(\Auth::check()){
+                $like->user_id = \Auth::user()->id;
+            }else{
+                $like->ip = $request->ip();
+            }
     
             $like->save();
     
             //ステータスが1のときはデータベースに情報を削除
         } elseif ($request->input('like_product')  == 1) {
-            LikeProduct::where('product_id', "=", $request->input('product_id'))
-                ->where('user_id', "=", auth()->user()->id)
-                ->delete();
+            $like = LikeProduct::where('product_id', "=", $request->input('product_id'));
+                
+                if(\Auth::check()){
+                    $like = $like->where('user_id', '=', \Auth::user()->id);
+                }else{
+                    $like = $like->where('ip', "=", $request->ip());
+                }
+                $like->delete();
         }
         return  $request->input('like_product');
     }
